@@ -52,7 +52,7 @@ def model_process(file_path):
     strs, bound_rects, img_bboxes = text_detection.TextDetector(img1_t_cv,
                                                         size).recognize_text()
     #print(*strs, sep='\n')
-    strs=strs.replace('\n', ' ')
+    #strs=strs.replace('\n', ' ')
     print('text extracted and save to file')
     f = open('out_text/'+img1_name.split('.')[-2]+".txt", "a")
     f.writelines([st+"\n-------------------------------------------------\n" for st in strs])
