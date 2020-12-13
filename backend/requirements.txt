@@ -1,0 +1,13 @@
+Flask==1.1.2
+Flask-AutoIndex==0.6.6
+imageio==2.3.0
+numpy==1.18.1
+opencv-python==4.1.2.30
+pathtools==0.1.2
+Pillow==7.2.0
+pytesseract==0.3.6
+scipy==1.4.1
+scikit-image==0.16.1
+scikit-learn==0.23.2
+watchdog==0.10.2
+

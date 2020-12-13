@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="static/style.css">
+<script  src="static/script.js"></script>
+    <title>result</title>
+	
+<script>
+
+function refresh(node)
+{
+   var times = 4000; // gap in Milli Seconds;
+
+   (function startRefresh()
+   {
+      var address;
+      if(node.src.indexOf('?')>-1)
+       address = node.src.split('?')[0];
+      else 
+       address = node.src;
+      node.src = address+"?time="+new Date().getTime();
+
+      setTimeout(startRefresh,times);
+   })();
+
+}
+
+window.onload = function()
+{
+  var node = document.getElementById('img');
+  refresh(node);
+  var node1 = document.getElementById('txt');
+  refresh(node1);
+  // you can refresh as many images you want just repeat above steps
+}
+
+</script>	
+	
+	
+	
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center">Output</h1>
+	<div class="d-flex justify-content-center">
+	<div class="col-md-3"></div>
+	<img width=425 id="img" src="{{ data.data['bussiness_card'] }}"/>
+	<div class="d-flex justify-content-center">
+<a href="{{ data.data['bussiness_card'] }}" class="text-center" style="color:yellow;" target="popup">Business Card</a><br>
+<div id="list">
+  <p><iframe id="txt" src="{{ data.data['text_data'] }}" frameborder="0" height="400"
+      width="95%"></iframe></p>
+</div>
+
+<a href="{{ data.data['text_data'] }}" class="text-center" style="color:yellow;" target="popup">Text Data</a>
+</div >
+    <a href="/" class="text-right">Go Back</a>
+</div>
+</div>
+</body>
+</html>
